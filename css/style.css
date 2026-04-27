@@ -1,0 +1,70 @@
+/* ── Reset de base ─────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f8f7f4;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* ── Animations ─────────────────────────────────────────────── */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.page {
+  animation: fadeIn 0.3s ease;
+}
+
+/* ── Grilles responsive ──────────────────────────────────────── */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+
+@media (max-width: 768px) {
+  .detail-grid  { grid-template-columns: 1fr !important; }
+
+  nav { gap: 2px !important; }
+  nav button { padding: 6px 10px !important; font-size: 12px !important; }
+}
+
+/* ── Spinner de chargement ───────────────────────────────────── */
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 20px;
+  border: 3px solid #e9ecef;
+  border-top-color: #1a1a2e;
+  animation: spin 1s linear infinite;
+}
+
+/* ── Champs de formulaire (focus commun) ─────────────────────── */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #0f3460 !important;
+  outline: none;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Église Catholique – Sénégal</title>
+
+  <!-- Leaflet CSS (carte interactive) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+
+  <!-- Nos styles -->
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- En-tête (menu) -->
+  <header id="header"></header>
+
+  <!-- Contenu de la page active -->
+  <main id="page-content"></main>
+
+  <!-- Pied de page -->
+  <footer id="footer"></footer>
+
+  <!-- ── Données ── -->
+  <script src="js/data.js"></script>
+
+  <!-- ── Utilitaires ── -->
+  <script src="js/state.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/router.js"></script>
+
+  <!-- ── Pages ── -->
+  <script src="js/pages/accueil.js"></script>
+  <script src="js/pages/paroisses.js"></script>
+  <script src="js/pages/detail.js"></script>
+  <script src="js/pages/liturgie.js"></script>
+
+  <!-- ── Footer ── -->
+  <script src="js/footer.js"></script>
+
+  <!-- ── Point d'entrée ── -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
