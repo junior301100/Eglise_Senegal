@@ -112,26 +112,26 @@ function renderParoisses() {
         return `
           <div
             style="
-              background: white; border-radius: 14px; padding: 24px;
-              box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-              border: 1px solid #f0f0f0;
-              transition: all 0.2s;
+              background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 14px; padding: 24px;
+              box-shadow: 0 8px 32px rgba(15,52,96,0.3);
+              border: 1px solid rgba(212,175,55,0.2);
+              transition: all 0.2s; color: white;
             "
-            onmouseenter="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.12)'; this.style.borderColor='#d4af37';"
-            onmouseleave="this.style.boxShadow='0 2px 16px rgba(0,0,0,0.07)'; this.style.borderColor='#f0f0f0';"
+            onmouseenter="this.style.boxShadow='0 12px 48px rgba(15,52,96,0.4)'; this.style.borderColor='rgba(212,175,55,0.4)';"
+            onmouseleave="this.style.boxShadow='0 8px 32px rgba(15,52,96,0.3)'; this.style.borderColor='rgba(212,175,55,0.2)';"
           >
             <div style="display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 12px;">
-              <div style="width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; background: linear-gradient(135deg, #1a1a2e, #0f3460); display: flex; align-items: center; justify-content: center; color: #d4af37;">${icons.church(18)}</div>
-              <span style="background: rgba(212,175,55,0.1); color: #b8860b; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid rgba(212,175,55,0.2);">${p.ville}</span>
+              <div style="width: 40px; height: 40px; border-radius: 10px; flex-shrink: 0; background: rgba(212,175,55,0.2); display: flex; align-items: center; justify-content: center; color: #d4af37;">${icons.church(18)}</div>
+              <span style="background: rgba(212,175,55,0.2); color: #d4af37; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; border: 1px solid rgba(212,175,55,0.3);">${p.ville}</span>
             </div>
-            <h3 style="font-family: Georgia, serif; font-size: 16px; margin-bottom: 10px; color: #1a1a2e; line-height: 1.4;">${p.nom}</h3>
-            <div style="font-size: 13px; color: #777; display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px;">
+            <h3 style="font-family: Georgia, serif; font-size: 16px; margin-bottom: 10px; color: white; line-height: 1.4;">${p.nom}</h3>
+            <div style="font-size: 13px; color: rgba(255,255,255,0.7); display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px;">
               <span style="display: flex; align-items: center; gap: 6px;">${icons.mapPin(12)} ${p.quartier}, ${p.ville}</span>
               <span style="display: flex; align-items: center; gap: 6px;">${icons.user(12)} ${p.curé}</span>
               <span style="display: flex; align-items: center; gap: 6px;">${icons.phone(12)} ${p.telephone}</span>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">${horairesHtml} ${plusHtml}</div>
-            <button onclick="navigate('detail', PAROISSES[${p.id - 1}])" style="width: 100%; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #1a1a2e, #0f3460); color: white; border: none; cursor: pointer; font-size: 13px; font-family: Georgia, serif; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px;">${icons.externalLink(14)} Voir les détails</button>
+            <button onclick="navigate('detail', PAROISSES[${p.id - 1}])" style="width: 100%; padding: 10px; border-radius: 8px; background: linear-gradient(135deg, #d4af37, #b8860b); color: white; border: none; cursor: pointer; font-size: 13px; font-family: Georgia, serif; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 6px;">${icons.externalLink(14)} Voir les détails</button>
           </div>`;
       }).join("");
 

@@ -6,6 +6,7 @@ function renderPage() {
   if      (state.page === "accueil")   main.innerHTML = renderAccueil();
   else if (state.page === "paroisses") main.innerHTML = renderParoisses();
   else if (state.page === "detail")    main.innerHTML = renderDetail();
+  else if (state.page === "bible")     main.innerHTML = renderBible();
   else if (state.page === "liturgie")  main.innerHTML = renderLiturgie();
 
   if (state.leafletReady) {

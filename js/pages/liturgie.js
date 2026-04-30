@@ -107,14 +107,23 @@ function renderLiturgie() {
   const liturgie = state.liturgy || getRealAelfLiturgy();
   const colors = COULEUR_MAP[liturgie.couleur] || COULEUR_MAP.blanc;
 
-  const readingsHtml = liturgie.lectures.map(l => `
-    <div style="margin-bottom: 24px; padding: 20px; background: ${colors.light}; border-radius: 12px; border-left: 4px solid ${colors.accent};">
-      <h4 style="color: ${colors.bg}; margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 16px;">${l.titre}</h4>
-      <p style="color: #666; margin: 0 0 12px 0; font-size: 14px; font-style: italic;">${l.reference}</p>
-      ${l.antienne ? `<p style="color: ${colors.accent}; margin: 0 0 12px 0; font-size: 13px; font-weight: 600;">${l.antienne}</p>` : ''}
-      <p style="color: #333; margin: 0; line-height: 1.6; font-size: 15px; white-space: pre-line;">${l.texte}</p>
+  const readingsHtml = liturgie.lectures.map((l, index) => {
+    // Appliquer le fond bleu pour la première lecture, psaume, évangile et méditation
+    const isFirstReading = index === 0;
+    const isPsalm = l.titre.toLowerCase().includes('psaume');
+    const isGospel = l.titre.toLowerCase().includes('évangile') || l.reference.toLowerCase().includes('jean') || l.reference.toLowerCase().includes('matthieu') || l.reference.toLowerCase().includes('marc') || l.reference.toLowerCase().includes('luc');
+    
+    const useBlueBackground = isFirstReading || isPsalm || isGospel;
+    
+    return `
+    <div style="margin-bottom: 24px; padding: 20px; background: ${useBlueBackground ? 'linear-gradient(135deg, #1a1a2e, #0f3460)' : colors.light}; border-radius: 12px; border-left: 4px solid ${colors.accent}; border: ${useBlueBackground ? '1px solid rgba(212,175,55,0.2)' : 'none'};">
+      <h4 style="color: ${useBlueBackground ? 'white' : colors.bg}; margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 16px;">${l.titre}</h4>
+      <p style="color: ${useBlueBackground ? 'rgba(255,255,255,0.8)' : '#666'}; margin: 0 0 12px 0; font-size: 14px; font-style: italic;">${l.reference}</p>
+      ${l.antienne ? `<p style="color: ${useBlueBackground ? '#d4af37' : colors.accent}; margin: 0 0 12px 0; font-size: 13px; font-weight: 600;">${l.antienne}</p>` : ''}
+      <p style="color: ${useBlueBackground ? 'rgba(255,255,255,0.9)' : '#333'}; margin: 0; line-height: 1.6; font-size: 15px; white-space: pre-line;">${l.texte}</p>
     </div>
-  `).join('');
+  `;
+}).join('');
 
   return `
     <div class="page">
@@ -126,22 +135,19 @@ function renderLiturgie() {
           ${liturgie.temps_liturgique} - ${liturgie.couleur.charAt(0).toUpperCase() + liturgie.couleur.slice(1)}
         </p>
       </section>
-      <div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-        <div style="background: white; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #f0f0f0;">
+      <div style="background: white; padding: 32px; color: #333;">
           <div style="margin-bottom: 32px; text-align: center;">
-            <h2 style="color: ${colors.bg}; margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 20px;">Lectures du jour</h2>
-            <p style="color: #666; margin: 0; font-size: 14px;">Source : Association Épiscopale Liturgique Francophone (AELF)</p>
+            <h2 style="color: #1a1a2e; margin: 0 0 8px 0; font-family: Georgia, serif; font-size: 20px;">Lectures du jour</h2>
           </div>
           ${readingsHtml}
-          <div style="margin-top: 32px; padding: 24px; background: #f8f9fa; border-radius: 12px;">
-            <h3 style="color: ${colors.bg}; margin: 0 0 12px 0; font-family: Georgia, serif; font-size: 18px;">Méditation</h3>
-            <p style="color: #555; margin: 0; line-height: 1.6; font-style: italic; font-size: 15px;">${liturgie.meditation}</p>
+          <div style="margin-top: 32px; padding: 24px; background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 12px; border: 1px solid rgba(212,175,55,0.2);">
+            <h3 style="color: white; margin: 0 0 12px 0; font-family: Georgia, serif; font-size: 18px;">Méditation</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; font-style: italic; font-size: 15px;">${liturgie.meditation}</p>
           </div>
           <div style="margin-top: 24px; padding: 24px; background: #fff8e1; border-radius: 12px; border: 1px solid #ffd700;">
             <h3 style="color: #b8860b; margin: 0 0 12px 0; font-family: Georgia, serif; font-size: 18px;">Prière du jour</h3>
             <p style="color: #666; margin: 0; line-height: 1.6; font-size: 15px;">${liturgie.priere}</p>
           </div>
         </div>
-      </div>
     </div>`;
 }

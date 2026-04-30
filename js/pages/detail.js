@@ -10,19 +10,20 @@ function renderDetail() {
   // ── Horaires par jour ───────────────────────────────────────────────────────
   const horairesHtml = Object.entries(p.horaires).map(([jour, heures]) => {
     const heuresHtml = heures.map(h =>
-      `<span style="
-         background: #1a1a2e; color: #d4af37;
-         padding: 2px 8px; border-radius: 6px;
+      `<div style="
+         background: rgba(255,255,255,0.1); color: #d4af37;
+         padding: 4px 8px; border-radius: 6px;
          font-size: 12px; font-weight: 600;
-       ">${h}</span>`
+         margin-bottom: 4px;
+       ">${h}</div>`
     ).join("");
 
     return `
-      <div style="background: #f8f9fa; border-radius: 10px; padding: 14px; border-left: 3px solid #d4af37;">
-        <div style="font-weight: 600; color: #1a1a2e; margin-bottom: 8px; font-size: 14px; font-family: Georgia, serif;">
+      <div style="background: rgba(255,255,255,0.1); border-radius: 10px; padding: 14px; border-left: 3px solid #d4af37;">
+        <div style="font-weight: 600; color: white; margin-bottom: 8px; font-size: 14px; font-family: Georgia, serif;">
           ${JOURS_FR[jour]}
         </div>
-        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
           ${heuresHtml}
         </div>
       </div>`;
@@ -39,13 +40,13 @@ function renderDetail() {
     <div style="display: flex; gap: 14px; align-items: flex-start;">
       <div style="
         width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
-        background: rgba(15,52,96,0.08);
+        background: rgba(212,175,55,0.2);
         display: flex; align-items: center; justify-content: center;
-        color: #0f3460;
+        color: #d4af37;
       ">${icon}</div>
       <div>
-        <div style="font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px;">${label}</div>
-        <div style="color: #333; font-size: 14px;">${val}</div>
+        <div style="font-size: 11px; color: rgba(255,255,255,0.7); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px;">${label}</div>
+        <div style="color: white; font-size: 14px;">${val}</div>
       </div>
     </div>`
   ).join("");
@@ -109,8 +110,8 @@ function renderDetail() {
           <div style="display: flex; flex-direction: column; gap: 24px;">
 
             <!-- Horaires -->
-            <div style="background: white; border-radius: 16px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07);">
-              <h2 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 20px; color: #1a1a2e; display: flex; align-items: center; gap: 8px;">
+            <div style="background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 16px; padding: 28px; box-shadow: 0 8px 32px rgba(15,52,96,0.3); border: 1px solid rgba(212,175,55,0.2); color: white;">
+              <h2 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 20px; color: white; display: flex; align-items: center; gap: 8px;">
                 <span style="color: #d4af37;">${icons.clock(18)}</span> Horaires des Messes
               </h2>
               <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px;">
@@ -119,8 +120,8 @@ function renderDetail() {
             </div>
 
             <!-- Contact -->
-            <div style="background: white; border-radius: 16px; padding: 28px; box-shadow: 0 2px 16px rgba(0,0,0,0.07);">
-              <h2 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 20px; color: #1a1a2e; display: flex; align-items: center; gap: 8px;">
+            <div style="background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 16px; padding: 28px; box-shadow: 0 8px 32px rgba(15,52,96,0.3); border: 1px solid rgba(212,175,55,0.2); color: white;">
+              <h2 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 20px; color: white; display: flex; align-items: center; gap: 8px;">
                 <span style="color: #d4af37;">${icons.phone(18)}</span> Contact
               </h2>
               <div style="display: flex; flex-direction: column; gap: 16px;">

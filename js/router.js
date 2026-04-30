@@ -28,6 +28,7 @@ function renderHeader() {
   const pages = [
     ["accueil",   "Accueil"],
     ["paroisses", "Paroisses"],
+    ["bible",     "Bible"],
     ["liturgie",  "Liturgie"]
   ];
 

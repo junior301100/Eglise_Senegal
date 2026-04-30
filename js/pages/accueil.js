@@ -48,26 +48,26 @@ function renderAccueil() {
     <div
       onclick="navigate('${f.page}')"
       style="
-        background: white; border-radius: 16px; padding: 32px;
-        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-        border: 1px solid rgba(212,175,55,0.1);
+        background: linear-gradient(135deg, #1a1a2e, #0f3460); border-radius: 16px; padding: 32px;
+        box-shadow: 0 8px 32px rgba(15,52,96,0.3);
+        border: 1px solid rgba(212,175,55,0.2);
         transition: transform 0.2s, box-shadow 0.2s;
-        cursor: pointer;
+        cursor: pointer; color: white;
       "
-      onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 8px 40px rgba(0,0,0,0.14)';"
-      onmouseleave="this.style.transform=''; this.style.boxShadow='0 4px 24px rgba(0,0,0,0.08)';"
+      onmouseenter="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 12px 48px rgba(15,52,96,0.4)';"
+      onmouseleave="this.style.transform=''; this.style.boxShadow='0 8px 32px rgba(15,52,96,0.3)';"
     >
       <div style="
         width: 64px; height: 64px; border-radius: 16px; margin-bottom: 20px;
-        background: linear-gradient(135deg, #1a1a2e, #0f3460);
+        background: rgba(212,175,55,0.2);
         display: flex; align-items: center; justify-content: center;
         color: #d4af37;
       ">${f.icon}</div>
-      <h3 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 10px; color: #1a1a2e;">${f.title}</h3>
-      <p style="color: #666; line-height: 1.7; margin-bottom: 20px; font-size: 14px;">${f.text}</p>
+      <h3 style="font-family: Georgia, serif; font-size: 20px; margin-bottom: 10px; color: white;">${f.title}</h3>
+      <p style="color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 20px; font-size: 14px;">${f.text}</p>
       <button onclick="navigate('${f.page}')" style="
         display: inline-flex; align-items: center; gap: 6px;
-        color: #0f3460; background: none; border: none;
+        color: #d4af37; background: none; border: none;
         cursor: pointer; font-weight: 600; font-size: 14px; font-family: Georgia, serif;
       ">${f.label} →</button>
     </div>`
@@ -177,10 +177,10 @@ function renderAccueil() {
 
           <!-- Prochaine fête -->
           <div style="
-            background: linear-gradient(135deg, #8b1a1a, #4a0e0e);
+            background: linear-gradient(135deg, #1a1a2e, #0f3460);
             border-radius: 16px; padding: 32px; color: white;
-            border: 1px solid rgba(212,175,55,0.15);
-            box-shadow: 0 8px 32px rgba(139,26,26,0.3);
+            border: 1px solid rgba(212,175,55,0.2);
+            box-shadow: 0 8px 32px rgba(15,52,96,0.3);
           ">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
               <div style="
@@ -197,12 +197,11 @@ function renderAccueil() {
             <p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.7; margin-bottom: 16px;">${feast.desc}</p>
             <div style="display: flex; gap: 20px; align-items: center;">
               <div style="display: flex; align-items: center; gap: 6px; color: rgba(212,175,55,0.8); font-size: 12px;">
-                ${icons.clock(12)} ${formatDate(feast.date)}
+                ${icons.calendar(12)} ${formatDate(feast.date)}
               </div>
-              <div style="
-                background: rgba(212,175,55,0.2); color: #d4af37;
-                padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600;
-              ">${daysUntil(feast.date)}</div>
+              <div style="display: flex; align-items: center; gap: 6px; color: rgba(212,175,55,0.8); font-size: 12px;">
+                ${icons.clock(12)} ${daysUntil(feast.date)}
+              </div>
             </div>
           </div>
 

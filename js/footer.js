@@ -40,6 +40,7 @@ function renderFooter() {
             <div style="display: flex; flex-direction: column; gap: 8px;">
               <a href="#" onclick="navigate('accueil'); return false;" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Accueil</a>
               <a href="#" onclick="navigate('paroisses'); return false;" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Paroisses</a>
+              <a href="#" onclick="navigate('bible'); return false;" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Bible</a>
               <a href="#" onclick="navigate('liturgie'); return false;" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.2s;" onmouseover="this.style.color='#d4af37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Liturgie</a>
             </div>
           </div>
